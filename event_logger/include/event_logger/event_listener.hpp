@@ -32,91 +32,91 @@ private:
     // if the event contains and errornous element, we log it as an error
     if (msg.type == Event::ERROR_ELEMENT)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "/" + std::to_string(msg.thread_id) + "] " + msg.content;
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] " + msg.content;
     }
     // If the event is at runner definition and logs on start event
     else if (msg.type == Event::RUNNER_DEFINE and msg.event == Event::STARTED)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "] will trigger [" + msg.target_capability + "] on start";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "] will trigger [" + msg.target.capability + "] on start";
     }
     // If the event is at runner definition and logs on stop event
     else if (msg.type == Event::RUNNER_DEFINE and msg.event == Event::STOPPED)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "] will trigger [" + msg.target_capability + "] on stop";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "] will trigger [" + msg.target.capability + "] on stop";
     }
     // If the event is at runner definition and logs on failure event
     else if (msg.type == Event::RUNNER_DEFINE and msg.event == Event::FAILED)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "] will trigger [" + msg.target_capability + "] on failure";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "] will trigger [" + msg.target.capability + "] on failure";
     }
     // If the event is at runner definition and logs on success event
     else if (msg.type == Event::RUNNER_DEFINE and msg.event == Event::SUCCEEDED)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "] will trigger [" + msg.target_capability + "] on success";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "] will trigger [" + msg.target.capability + "] on success";
     }
     // If the event is at runner execution and logs on start event from main thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::STARTED and msg.thread_id < 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "] triggering [" + msg.target_capability + "] on start";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "] triggering [" + msg.target.capability + "] on start";
     }
     // If the event is at runner execution and logs on start event from worker thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::STARTED and msg.thread_id >= 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
-             msg.target_capability + "] on start";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
+             msg.target.capability + "] on start";
     }
     // If the event is at runner execution and logs on stop event from main thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::STOPPED and msg.thread_id < 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "] triggering [" + msg.target_capability + "] on stop";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "] triggering [" + msg.target.capability + "] on stop";
     }
     // If the event is at runner execution and logs on stop event from worker thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::STOPPED and msg.thread_id >= 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
-             msg.target_capability + "] on stop";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
+             msg.target.capability + "] on stop";
     }
     // If the event is at runner execution and logs on failure event from main thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::FAILED and msg.thread_id < 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "] triggering [" + msg.target_capability + "] on failure";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "] triggering [" + msg.target.capability + "] on failure";
     }
     // If the event is at runner execution and logs on failure event from worker thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::FAILED and msg.thread_id >= 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
-             msg.target_capability + "] on failure";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
+             msg.target.capability + "] on failure";
     }
     // If the event is at runner execution and logs on success event from main thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::SUCCEEDED and msg.thread_id < 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "] triggering [" + msg.target_capability + "] on success";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "] triggering [" + msg.target.capability + "] on success";
     }
     // If the event is at runner execution and logs on success event from worker thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::SUCCEEDED and msg.thread_id >= 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
-             msg.target_capability + "] on success";
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
+             msg.target.capability + "] on success";
     }
     // no capabilities means running on main node, thread id is -1 means on main thread
-    else if (msg.thread_id < 0 and msg.target_capability == "" and msg.source_capability == "")
+    else if (msg.thread_id < 0 and msg.target.capability == "" and msg.source.capability == "")
     {
       text = "[" + msg.origin_node + "] " + msg.content;
     }
     // no capabilities means running on main node, thread id is >0 means on worker thread. 
-    else if (msg.thread_id >= 0 and msg.target_capability == "" and msg.source_capability == "")
+    else if (msg.thread_id >= 0 and msg.target.capability == "" and msg.source.capability == "")
     {
       text = "[" + msg.origin_node + "]" + "[" + std::to_string(msg.thread_id) + "] " + msg.content;
     }
     // source capability is set, target capability is not set means msg is from within a capability, thread id is -1 means on main thread
-    else if (msg.thread_id < 0 and msg.target_capability == "" and msg.source_capability != "")
+    else if (msg.thread_id < 0 and msg.target.capability == "" and msg.source.capability != "")
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "] " + msg.content;
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "] " + msg.content;
     }
     // source capability is set, target capability is not set means msg is from within a capability, thread id is >0 means on worker thread. 
-    else if (msg.thread_id >= 0 and msg.target_capability == "" and msg.source_capability != "")
+    else if (msg.thread_id >= 0 and msg.target.capability == "" and msg.source.capability != "")
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source_capability + "/" + std::to_string(msg.thread_id) + "] " + msg.content;
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] " + msg.content;
     }
 
     if (msg.type == Event::ERROR)

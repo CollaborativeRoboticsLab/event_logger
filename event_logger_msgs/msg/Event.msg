@@ -4,16 +4,10 @@ std_msgs/Header header
 string origin_node
 
 # Capability which this event pertains to
-string source_capability
-
-# Used provider which this event pertains to
-string source_provider
+EventCapability source
 
 # Capability which this event targets at
-string target_capability
-
-# Used provider which this event targets at
-string target_provider
+EventCapability target
 
 # Thread id of the capability which this event pertains to
 int8 thread_id

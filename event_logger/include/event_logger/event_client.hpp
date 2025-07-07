@@ -1,6 +1,7 @@
 #pragma once
 #include <rclcpp/rclcpp.hpp>
 #include <event_logger_msgs/msg/event.hpp>
+#include <event_logger_msgs/msg/event_capability.hpp>
 
 /**
  * @brief A class to publish events to a given topic
@@ -47,10 +48,10 @@ public:
 
     message.header.stamp = node_->now();
     message.origin_node = node_name_;
-    message.source_capability = "";
-    message.source_provider = "";
-    message.target_capability = "";
-    message.target_provider = "";
+    message.source.capability = "";
+    message.source.provider = "";
+    message.target.capability = "";
+    message.target.provider = "";
     message.thread_id = thread_id;
     message.event = Event::UNDEFINED;
     message.type = Event::INFO;
@@ -72,10 +73,10 @@ public:
 
     message.header.stamp = node_->now();
     message.origin_node = node_name_;
-    message.source_capability = "";
-    message.source_provider = "";
-    message.target_capability = "";
-    message.target_provider = "";
+    message.source.capability = "";
+    message.source.provider = "";
+    message.target.capability = "";
+    message.target.provider = "";
     message.thread_id = thread_id;
     message.event = Event::UNDEFINED;
     message.type = Event::DEBUG;
@@ -96,10 +97,10 @@ public:
 
     message.header.stamp = node_->now();
     message.origin_node = node_name_;
-    message.source_capability = "";
-    message.source_provider = "";
-    message.target_capability = "";
-    message.target_provider = "";
+    message.source.capability = "";
+    message.source.provider = "";
+    message.target.capability = "";
+    message.target.provider = "";
     message.thread_id = thread_id;
     message.event = Event::UNDEFINED;
     message.type = Event::ERROR;
@@ -120,10 +121,10 @@ public:
 
     message.header.stamp = node_->now();
     message.origin_node = node_name_;
-    message.source_capability = "";
-    message.source_provider = "";
-    message.target_capability = "";
-    message.target_provider = "";
+    message.source.capability = "";
+    message.source.provider = "";
+    message.target.capability = "";
+    message.target.provider = "";
     message.thread_id = thread_id;
     message.event = Event::UNDEFINED;
     message.type = Event::ERROR_ELEMENT;
@@ -145,10 +146,10 @@ public:
 
     message.header.stamp = node_->now();
     message.origin_node = node_name_;
-    message.source_capability = src_capability;
-    message.source_provider = src_provider;
-    message.target_capability = tgt_capability;
-    message.target_provider = tgt_provider;
+    message.source.capability = src_capability;
+    message.source.provider = src_provider;
+    message.target.capability = tgt_capability;
+    message.target.provider = tgt_provider;
     message.thread_id = -1;
     message.event = event;
     message.type = Event::RUNNER_DEFINE;

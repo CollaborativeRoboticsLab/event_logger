@@ -17,6 +17,7 @@ find_package(std_msgs REQUIRED)
 
 set(msg_files
   "msg/Event.msg"
+  "msg/EventCapability.msg"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}
