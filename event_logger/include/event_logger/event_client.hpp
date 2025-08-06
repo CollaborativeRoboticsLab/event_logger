@@ -140,7 +140,7 @@ public:
    * @param element element information to be published
    */
   void runner_define(const std::string& src_capability, const std::string& src_provider, const std::string& tgt_capability,
-                     const std::string& tgt_provider, uint8_t event = Event::UNDEFINED)
+                     const std::string& tgt_provider, uint8_t event = Event::UNDEFINED, std::string event_description = "")
   {
     auto message = Event();
 
@@ -152,6 +152,7 @@ public:
     message.target.provider = tgt_provider;
     message.thread_id = -1;
     message.event = event;
+    message.event_description = event_description;
     message.type = Event::RUNNER_DEFINE;
     message.content = "";
     message.pid = -1;

@@ -23,6 +23,8 @@ uint8 UNDEFINED=5
 # Related event
 uint8 event
 
+string event_description
+
 # Event types available
 uint8 INFO=0
 uint8 DEBUG=1
