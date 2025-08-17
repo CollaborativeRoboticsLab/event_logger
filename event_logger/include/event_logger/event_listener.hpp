@@ -62,7 +62,7 @@ private:
     // If the event is at runner execution and logs on start event from worker thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::STARTED and msg.thread_id >= 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering [" +
              msg.target.capability + "] on start";
     }
     // If the event is at runner execution and logs on stop event from main thread
@@ -73,7 +73,7 @@ private:
     // If the event is at runner execution and logs on stop event from worker thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::STOPPED and msg.thread_id >= 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering [" +
              msg.target.capability + "] on stop";
     }
     // If the event is at runner execution and logs on failure event from main thread
@@ -84,7 +84,7 @@ private:
     // If the event is at runner execution and logs on failure event from worker thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::FAILED and msg.thread_id >= 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering [" +
              msg.target.capability + "] on failure";
     }
     // If the event is at runner execution and logs on success event from main thread
@@ -95,7 +95,7 @@ private:
     // If the event is at runner execution and logs on success event from worker thread
     else if (msg.type == Event::RUNNER_EVENT and msg.event == Event::SUCCEEDED and msg.thread_id >= 0)
     {
-      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering " +
+      text = "[" + msg.origin_node + "]" + "[" + msg.source.capability + "/" + std::to_string(msg.thread_id) + "] triggering [" +
              msg.target.capability + "] on success";
     }
     // no capabilities means running on main node, thread id is -1 means on main thread
